@@ -1,0 +1,63 @@
+{
+  "name": "react-demo",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/react-demo",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "root": "apps/react-demo",
+        "outputPath": "dist/apps/react-demo"
+      },
+      "configurations": {
+        "production": {},
+        "development": {
+          "outputPath": "apps/react-demo"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "options": {
+        "buildTarget": "react-demo:build",
+        "dev": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "react-demo:build:production",
+          "dev": false
+        },
+        "development": {
+          "buildTarget": "react-demo:build:development",
+          "dev": true
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "react-demo:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/react-demo"],
+      "options": {
+        "jestConfig": "apps/react-demo/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/react-demo/**/*.{ts,tsx,js,jsx}"]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  },
+  "tags": []
+}

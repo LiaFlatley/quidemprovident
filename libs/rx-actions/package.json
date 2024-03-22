@@ -1,0 +1,16 @@
+{
+  "name": "@ns3/rx-actions",
+  "version": "0.0.1",
+  "license": "MIT",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bielik20/ts-libs"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "tslib": "^2.0.0"
+  }
+}

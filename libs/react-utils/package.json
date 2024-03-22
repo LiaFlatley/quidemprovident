@@ -1,0 +1,21 @@
+{
+  "name": "@ns3/react-utils",
+  "version": "0.0.1",
+  "sideEffects": false,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bielik20/ts-libs"
+  },
+  "homepage": "https://github.com/Bielik20/ts-libs/tree/master/libs/react-utils#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@ns3/ts-utils": "*",
+    "react": "^18.0.0",
+    "rxjs": "^7.5.7",
+    "tslib": "^2.0.0",
+    "use-constant": "^1.1.1"
+  }
+}

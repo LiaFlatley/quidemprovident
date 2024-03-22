@@ -1,0 +1,57 @@
+{
+  "name": "di",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/di/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/di",
+        "tsConfig": "libs/di/tsconfig.lib.json",
+        "project": "libs/di/package.json",
+        "entryFile": "libs/di/src/index.ts",
+        "updateBuildableProjectDepsInPackageJson": false,
+        "assets": [
+          {
+            "glob": "libs/di/README.md",
+            "input": ".",
+            "output": "."
+          },
+          {
+            "glob": "LICENSE",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/di/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/di"],
+      "options": {
+        "jestConfig": "libs/di/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "tsd": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx tsd --t dummy.d.ts",
+        "cwd": "libs/di"
+      }
+    },
+    "publish": {
+      "executor": "@ns3/nx-npm:publish"
+    }
+  },
+  "tags": []
+}
